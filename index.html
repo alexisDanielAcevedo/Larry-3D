@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Larry</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- <h1 align="center">This is Larry</h1> -->
+
+   <model-viewer 
+        id="model"
+        src="Skeleton_Minion.glb"
+        camera-controls tone-mapping="neutral" 
+        shadow-intensity="1" 
+        autoplay
+        disable-tap
+        animation-name="Lie_Idle">
+    </model-viewer>
+
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
+    <script>
+        (() => {
+            const modelViewer = document.querySelector('#model');
+            let isAnimating = false;
+            let clickCount = 0;
+
+            modelViewer.addEventListener('click', () => {
+                if (!isAnimating) {
+                    isAnimating = true;
+
+                    console.log(`Número de clics: ${clickCount + 1}`);
+
+                    if (clickCount === 0) {
+                        modelViewer.animationName = 'Lie_StandUp';
+
+                        setTimeout(() => {
+                            modelViewer.animationName = 'Idle';
+                            isAnimating = false;
+                            clickCount++;
+                        }, 2030);
+                    } else if (clickCount === 1) {
+                        modelViewer.animationName = 'Cheer';
+
+                        setTimeout(() => {
+                            modelViewer.animationName = 'Idle';
+                            isAnimating = false;
+                            clickCount++;
+                        }, 1066);
+                    } else if (clickCount >= 2 && clickCount <= 4) {
+                        modelViewer.animationName = 'Hit_A';
+
+                        setTimeout(() => {
+                            modelViewer.animationName = 'Idle';
+                            isAnimating = false;
+                            clickCount++;
+                        }, 400);
+                    } else if (clickCount >= 5 && clickCount <= 7) {
+                        modelViewer.animationName = 'Hit_B';
+
+                        setTimeout(() => {
+                            modelViewer.animationName = 'Idle_B';
+                            isAnimating = false;
+                            clickCount++;
+                        }, 600);
+                    } else if (clickCount === 8) {
+                        modelViewer.animationName = '1H_Melee_Attack_Slice_Diagonal';
+
+                        setTimeout(() => {
+                            modelViewer.animationName = 'Idle_Combat';
+                            isAnimating = false;
+                            clickCount++;
+                        }, 1000);
+                    } else if (clickCount === 9) {
+                        modelViewer.animationName = 'Unarmed_Melee_Attack_Kick';
+
+                        setTimeout(() => {
+                            modelViewer.animationName = 'Unarmed_Idle';
+                            isAnimating = false;
+                            clickCount++;
+                        }, 500);
+                    } else if (clickCount === 10) {
+                        modelViewer.animationName = 'Unarmed_Melee_Attack_Punch_A';
+
+                        setTimeout(() => {
+                            modelViewer.animationName = 'Unarmed_Idle';
+                            isAnimating = false;
+                            clickCount++;
+                        }, 1000);
+                    } else if (clickCount === 11) {
+                        modelViewer.animationName = 'Unarmed_Melee_Attack_Punch_B';
+
+                        setTimeout(() => {
+                            modelViewer.animationName = 'Unarmed_Idle';
+                            isAnimating = false;
+                            clickCount++;
+                        }, 1000); 
+                    } else if (clickCount === 12) {
+                        modelViewer.animationName = 'Taunt_Longer';
+
+                        setTimeout(() => {
+                            modelViewer.animationName = 'Idle_Combat';
+                            isAnimating = false;
+                            clickCount++;
+                        }, 2600); 
+                    
+                    } else if (clickCount === 13) {
+                        modelViewer.animationName = '1H_Melee_Attack_Chop';
+
+                        setTimeout(() => {
+                            modelViewer.animationName = '1H_Melee_Attack_Jump_Chop';
+                            isAnimating = false;
+                            clickCount++;
+                        }, 1000); 
+                    
+                    } else if (clickCount >= 14 && clickCount <=15) {
+                        modelViewer.animationName = 'Hit_B';
+
+                        setTimeout(() => {
+                            modelViewer.animationName = 'Idle_Combat';
+                            isAnimating = false;
+                            clickCount++;
+                        }, 600); 
+                    
+                    } else if (clickCount === 16) {
+                        modelViewer.animationName = 'Death_C_Skeletons';
+
+                        setTimeout(() => {
+                            modelViewer.animationName = 'Death_C_Pose';
+                            isAnimating = false;
+                            clickCount++;
+                        }, 1600); 
+                    
+                    } else if (clickCount === 17) {
+                        modelViewer.animationName = 'Death_C_Skeletons_Resurrect';
+
+                        setTimeout(() => {
+                            modelViewer.animationName = 'Idle_Combat';
+                            isAnimating = false;
+                            clickCount++;
+                        }, 2100); 
+                    
+                    } else if (clickCount === 18) {
+                        modelViewer.animationName = '1H_Melee_Attack_Slice_Diagonal';
+
+                        setTimeout(() => {
+                            modelViewer.animationName = 'Idle_B';
+                            isAnimating = false;
+                            clickCount++;
+                        }, 2100); 
+                    
+                    } else if (clickCount === 19) {
+                        modelViewer.animationName = 'Lie_Down';
+
+                        setTimeout(() => {
+                            modelViewer.animationName = 'Lie_Idle';
+                            location.reload(); // Reinicia la página
+                        }, 2600); 
+                    
+                    }
+                    
+                }
+            });
+        })();
+    </script>
+</body>
+</html>
